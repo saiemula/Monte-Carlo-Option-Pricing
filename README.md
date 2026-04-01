@@ -1,59 +1,67 @@
-**Monte Carlo Option Pricing Simulator**
+**Monte Carlo Option Pricing Simulator
+**
+A professional-grade simulator for pricing European options using Monte Carlo methods, benchmarked against the Black–Scholes analytical model. This project demonstrates core concepts from quantitative finance, stochastic processes, and numerical methods in a clear and visual way.
 
-What is this project about?
-This project is a professional simulator for pricing European Call and Put options using Monte Carlo methods. It simulates stock price paths with Geometric Brownian Motion, compares Monte Carlo prices to Black-Scholes analytical prices, and visualizes the results with animated plots. Designed for finance, education, and research.
+**Overview**
+This project simulates stock price evolution using Geometric Brownian Motion (GBM) and applies Monte Carlo simulation to estimate European option prices.
 
-Developer / Creator
-**saiemula**
 
-Features
-- Simulate stock price paths using GBM
-- Price European Call and Put options via Monte Carlo
-- Calculate Black-Scholes analytical price
-- Visualize animated stock price paths and option prices
-- Clean, professional dark theme
+**The workflow is as follows:**
+Simulate multiple stock price paths under GBM
+Compute option payoffs at maturity for each path
+Discount the average payoff back to present value
+Compare the Monte Carlo estimate with the exact Black–Scholes price
 
-Project Structure
-- `main.py`: Entry point, handles simulation, visualization, and comparison
-- `utils.py`: Contains GBM simulation and pricing functions
-- `requirements.txt`: Python dependencies
-- `README.md`: Project documentation and formulas
+The simulator highlights how numerical methods converge to analytical solutions as the number of simulations increases, illustrating the Law of Large Numbers.
 
-Formulas
-
+**Key Concepts**
 Geometric Brownian Motion (GBM)
-Stock price evolution:
-$$S_t = S_0 \exp\left((r - 0.5\sigma^2)t + \sigma W_t\right)$$
+GBM is the standard model for stock price dynamics in continuous time. It assumes:
+Log-normal distribution of prices
+Constant volatility and drift
+Continuous compounding
 
-Where:
-- $S_t$: Stock price at time $t$
-- $S_0$: Initial stock price
-- $r$: Risk-free rate
-- $\sigma$: Volatility
-- $W_t$: Wiener process (Brownian motion)
+Monte Carlo Simulation
+Monte Carlo methods estimate expected values by averaging results over many random samples. In this context:
+Each simulated path represents a possible future market scenario
+Option prices are computed as expected discounted payoffs
 
-Black-Scholes Formula
-European Call:
-$$C = S_0 N(d_1) - K e^{-rt} N(d_2)$$
+Black–Scholes Model
+The Black–Scholes model provides a closed-form solution for European option pricing under GBM assumptions. It serves as a benchmark to validate the Monte Carlo simulation.
 
-European Put:
-$$P = K e^{-rt} N(-d_2) - S_0 N(-d_1)$$
+**Features**
+High-performance simulation of stock price paths using vectorised NumPy operations
+Monte Carlo pricing for European Call and Put options
+Analytical pricing using the Black–Scholes formula
+Real-time comparison between numerical and analytical results
+Animated visualisation of simulated price paths
+Configurable parameters for experimentation and sensitivity analysis
 
-Where:
-$$d_1 = \frac{\ln(S_0/K) + (r + 0.5\sigma^2)t}{\sigma\sqrt{t}}$$
-$$d_2 = d_1 - \sigma\sqrt{t}$$
+**Installation**
+Clone the repository
+git clone https://github.com/saiemula/Monte-Carlo-Option-Pricing.git
+cd Monte-Carlo-Option-Pricing
 
-- $N(\cdot)$: Cumulative distribution function of the standard normal distribution
-- $K$: Strike price
-- $t$: Time to maturity
+**Install dependencies**
+pip install -r requirements.txt
 
-Parameters
-- Strike price
-- Volatility
-- Risk-free rate
-- Time to maturity
+**Usage**
+Run the main script:
+python main.py
 
-All parameters are labeled and visualized in the plot.
+The program will:
+Generate simulated stock price paths
+Animate a subset of paths
+Display real-time option pricing comparisons
 
-## License
-MIT
+
+
+S_t = S_0 * exp((r - 0.5*sigma^2)t + sigma*W_t)
+
+C ≈ e^(-rT) * (1/N) * Σ max(S_T(i) - K, 0)
+
+P ≈ e^(-rT) * (1/N) * Σ max(K - S_T(i), 0)
+
+C = S0 N(d1) - K e^(-rT) N(d2)
+
+P = K e^(-rT) N(-d2) - S0 N(-d1)
