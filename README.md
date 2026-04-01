@@ -56,12 +56,57 @@ Display real-time option pricing comparisons
 
 
 
-S_t = S_0 * exp((r - 0.5*sigma^2)t + sigma*W_t)
+**Mathematical Formulation**
 
-C ≈ e^(-rT) * (1/N) * Σ max(S_T(i) - K, 0)
+Geometric Brownian Motion
+$$S_t = S_0 \exp\left(\left(r - \frac{1}{2}\sigma^2\right)t + \sigma W_t\right)$$
 
-P ≈ e^(-rT) * (1/N) * Σ max(K - S_T(i), 0)
 
-C = S0 N(d1) - K e^(-rT) N(d2)
+**Monte Carlo Estimator**
 
-P = K e^(-rT) N(-d2) - S0 N(-d1)
+European Call:
+$$C \approx e^{-rT} \cdot \frac{1}{N} \sum_{i=1}^{N} \max\left(S_T^{(i)} - K,\ 0\right)$$
+
+European Put:
+$$P \approx e^{-rT} \cdot \frac{1}{N} \sum_{i=1}^{N} \max\left(K - S_T^{(i)},\ 0\right)$$
+
+### Black-Scholes Formula
+
+European Call:
+$$C = S_0 N(d_1) - K e^{-rT} N(d_2)$$
+
+European Put:
+$$P = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
+
+
+**Implementation Details**
+Vectorisation: NumPy is used to efficiently simulate thousands of paths simultaneously
+Random Sampling: Standard normal variables are used to model Brownian motion increments
+Time Discretisation: GBM is approximated using discrete time steps
+Numerical Stability: Log-space transformations reduce floating-point issues
+Performance: Simulation scales efficiently with increasing path counts
+
+**Possible Extensions**
+American option pricing (e.g. Longstaff–Schwartz method)
+Variance reduction techniques (antithetic variates, control variates)
+Greeks estimation (Delta, Gamma, Vega)
+GPU acceleration using libraries such as CuPy
+Calibration to real market data
+Interactive dashboard (e.g. using Plotly or Streamlit)
+
+**Dependencies**
+numpy
+pandas
+matplotlib
+scipy
+
+**Author**
+Sai Emula
+https://github.com/saiemula
+
+**License**
+This project is licensed under the MIT License.
+
+
+
+
