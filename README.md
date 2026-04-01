@@ -1,4 +1,4 @@
-**Monte Carlo Option Pricing Simulator**
+### Monte Carlo Option Pricing Simulator
 A professional-grade simulator for pricing European options using Monte Carlo methods, benchmarked against the Black–Scholes analytical model. This project demonstrates core concepts from quantitative finance, stochastic processes, and numerical methods in a clear and visual way.
 
 
@@ -79,7 +79,7 @@ $$P \approx e^{-rT} \cdot \frac{1}{N} \sum_{i=1}^{N} \max\left(K - S_T^{(i)},\ 0
 
 
 
-### Black-Scholes Formula
+**Black-Scholes Formula**
 European Call:
 $$C = S_0 N(d_1) - K e^{-rT} N(d_2)$$
 
