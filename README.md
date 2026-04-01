@@ -1,7 +1,3 @@
-Here's the fully formatted README ready to paste directly into GitHub:
-
----
-
 # Monte Carlo Option Pricing Simulator
 
 A professional-grade simulator for pricing European options using Monte Carlo methods, benchmarked against the Black–Scholes analytical model. This project demonstrates core concepts from quantitative finance, stochastic processes, and numerical methods in a clear and visual way.
@@ -165,7 +161,3 @@ $$d_2 = d_1 - \sigma\sqrt{T}$$
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-Copy everything from the `# Monte Carlo...` heading all the way to the bottom and paste it into GitHub via the pencil icon ✏️ on your README → select all → paste → **Commit changes**.
