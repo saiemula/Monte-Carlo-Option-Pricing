@@ -42,10 +42,15 @@ The Black–Scholes model provides a closed-form solution for European option pr
 **Features**
 
 High-performance simulation of stock price paths using vectorised NumPy operations
+
 Monte Carlo pricing for European Call and Put options
+
 Analytical pricing using the Black–Scholes formula
+
 Real-time comparison between numerical and analytical results
+
 Animated visualisation of simulated price paths
+
 Configurable parameters for experimentation and sensitivity analysis
 
 
@@ -57,17 +62,14 @@ git clone https://github.com/saiemula/Monte-Carlo-Option-Pricing.git
 cd Monte-Carlo-Option-Pricing
 
 Install dependencies
-
 pip install -r requirements.txt
 
 Usage
-
 Run the main script:
-
 python main.py
 
-The program will:
 
+The program will:
 Generate simulated stock price paths
 Animate a subset of paths
 Display real-time option pricing comparisons
@@ -111,28 +113,41 @@ $$P = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
 **Implementation Details**
 
 Vectorisation: NumPy is used to efficiently simulate thousands of paths simultaneously
+
 Random Sampling: Standard normal variables are used to model Brownian motion increments
+
 Time Discretisation: GBM is approximated using discrete time steps
+
 Numerical Stability: Log-space transformations reduce floating-point issues
+
 Performance: Simulation scales efficiently with increasing path counts
+
 
 
 
 **Possible Extensions**
 
 American option pricing (e.g. Longstaff–Schwartz method)
+
 Variance reduction techniques (antithetic variates, control variates)
+
 Greeks estimation (Delta, Gamma, Vega)
+
 GPU acceleration using libraries such as CuPy
+
 Calibration to real market data
+
 Interactive dashboard (e.g. using Plotly or Streamlit)
 
 
 **Dependencies**
 
 numpy
+
 pandas
+
 matplotlib
+
 scipy
 
 
@@ -140,6 +155,7 @@ scipy
 **Author**
 
 Sai Emula
+
 https://github.com/saiemula
 
 
