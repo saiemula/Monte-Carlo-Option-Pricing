@@ -1,4 +1,4 @@
-Monte Carlo Option Pricing Simulator
+**Monte Carlo Option Pricing Simulator**
 
 What is this project about?
 This project is a professional simulator for pricing European Call and Put options using Monte Carlo methods. It simulates stock price paths with Geometric Brownian Motion, compares Monte Carlo prices to Black-Scholes analytical prices, and visualizes the results with animated plots. Designed for finance, education, and research.
