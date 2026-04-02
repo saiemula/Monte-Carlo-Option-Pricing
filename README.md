@@ -161,29 +161,3 @@ $$d_2 = d_1 - \sigma\sqrt{T}$$
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-
-
-
-Input: T-day return window (N_assets × T)
-         │
-┌────────▼────────────────────────────────────┐
-│              ENCODER                         │
-│   Conv1D layers → FC layers                  │
-│   Output: μ(z), σ(z)  ← learned mean/var    │
-└────────┬────────────────────────────────────┘
-         │ Reparameterisation: z = μ + σ·ε
-┌────────▼────────────────────────────────────┐
-│           LATENT SPACE  z ∈ ℝᵈ              │
-│   d = 8–16 dimensions                        │
-│   Structured, continuous, interpolatable     │
-└────────┬────────────────────────────────────┘
-         │
-┌────────▼────────────────────────────────────┐
-│              DECODER                         │
-│   FC layers → Conv1DTranspose layers         │
-│   Output: Reconstructed return window         │
-└─────────────────────────────────────────────┘
-
-Loss = Reconstruction Loss (MSE) + KL Divergence
-     = E[||x - x̂||²] + KL[q(z|x) || p(z)]
